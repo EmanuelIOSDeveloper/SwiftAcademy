@@ -1,8 +1,6 @@
-//: [<=Previous: 04 - Challenge Booleans](@previous)
+//: [Previous](@previous)
 
-//:##Episode 05: Logical Operators
-
-import Foundation
+//: ## Episode 05: Logical Operators
 
 let passingGrade = 50
 let studentGrade = 50
@@ -15,7 +13,11 @@ let samPassed = samGrade >= passingGrade
 
 !samPassed
 !chrisPassed
+
 chrisPassed == false
+
+// NOT Operator
+// !
 
 let catName = "Ozma"
 //!catName
@@ -25,35 +27,41 @@ let catName = "Ozma"
 
 let bothPassed = chrisPassed && samPassed
 
-//OR Operator
+// OR Operator
 // ||
 
 let eitherPassed = chrisPassed || samPassed
+
 let anyonePassed = chrisPassed || samPassed || studentPassed
-let everyonePaseed = chrisPassed && samPassed && studentPassed
+let everyonePassed = chrisPassed && samPassed && studentPassed
 
 let meritAwardGrade = 90
 let samHasPerfectAttendance = true
-let samIsMeritStudente = samHasPerfectAttendance && samGrade > meritAwardGrade
+
+let samIsMeritStudent = samHasPerfectAttendance && samGrade > meritAwardGrade
 
 let chrisHasPerfectAttendance = true
 let chrisIsMeritStudent = chrisHasPerfectAttendance && chrisGrade > meritAwardGrade
 
+
 if chrisIsMeritStudent {
     print("Congratulations!")
 } else {
-    print("Keep studying!")
+    print("Keep studying.")
 }
 
 var betterStudent: String
+
 if samGrade > chrisGrade {
     betterStudent = "Sam"
 } else {
     betterStudent = "Chris"
 }
 
-//Ternary conditional operator
-// expression ? true-value : false-value
+// Ternary conditional operator
+// expression ? (value if true) : (value if false)
 
 betterStudent = samGrade > chrisGrade ? "Sam" : "Chris"
-//: [=>Next: 06 - Challenge - Logical Operators](@next)
+
+
+//: [Next](@next)
