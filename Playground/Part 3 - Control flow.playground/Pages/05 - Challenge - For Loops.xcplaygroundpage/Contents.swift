@@ -8,9 +8,7 @@ import Foundation
  
  ## Challenge 1.
  
- Create a for loop that counts by fives, up to and including 100.
- 
- Use i as your loop value.
+ Create a for loop that counts by fives, up to and including 100. Use i as your loop value.
  
  Your for loop range should be 1 to 100 inclusive.
  
