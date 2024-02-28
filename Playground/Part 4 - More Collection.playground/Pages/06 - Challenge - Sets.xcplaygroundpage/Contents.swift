@@ -69,9 +69,7 @@ let removedPet = animalPets.remove("🐶 Mango")
  
  Challenge 4
  
- Since you've removed Mango, all of the pets in both sets are technically mythical pets. Use `.formUnion` to mutate the `mythicalPets` set to contain the combination of both sets of pets.
- 
- Print the new `mythicalPets` set to the console to check your work.
+ Since you've removed Mango, all of the pets in both sets are technically mythical pets. Use `.formUnion` to mutate the `mythicalPets` set to contain the combination of both sets of pets. Print the new `mythicalPets` set to the console to check your work.
  
  */
 

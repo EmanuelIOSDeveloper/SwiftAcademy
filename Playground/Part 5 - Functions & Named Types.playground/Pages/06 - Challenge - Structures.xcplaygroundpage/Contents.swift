@@ -46,8 +46,7 @@ struct Classroom {
 /*:
  # Challenge 2
 
- 1. Create an instance of a `Classroom`
- 2. Use the `getHighestGrade` method
+ 1. Create an instance of a `Classroom`2. Use the `getHighestGrade` method
 */
 
 let emanuel = Student(firstName: "Emanuel", lastName: "Andrade", grade: 85)
