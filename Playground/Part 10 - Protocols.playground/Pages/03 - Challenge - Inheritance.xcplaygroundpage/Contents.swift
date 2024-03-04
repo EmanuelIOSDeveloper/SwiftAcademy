@@ -24,8 +24,40 @@ Create one subclass of your choice of `WildAnimal` or `Pet`. It should do at lea
 */
 
 
-// TODO: Write solution here
+class Animal {
+    func speak() { }
+}
 
+class WildAnimal: Animal {
+    let isPoisonus: Bool
+    
+    init(isPoisonus: Bool) {
+        self.isPoisonus = isPoisonus
+    }
+}
+
+class Pet: Animal {
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func play() {
+        print("Playtime! ... now naptime")
+    }
+    
+    override func speak() {
+        print("Hi I'm \(name)! I am cute. Pet me")
+    }
+    
+}
+
+class Cat: Pet {
+    override func speak() {
+        print("I can has Cheezburger!")
+    }
+}
 
 
 /*:
@@ -38,7 +70,38 @@ Create one subclass of your choice of `WildAnimal` or `Pet`. It should do at lea
 
 
 
-// TODO: Write solution here
+let animal = Animal()
+let babyAragog = WildAnimal(isPoisonus: true)
+let babySmaug = WildAnimal(isPoisonus: false)
+let hamtaro = Pet(name: "Hamtaro")
+let ozma = Cat(name: "Ozma")
+
+let animals = [animal, babySmaug, babyAragog, hamtaro, ozma]
+
+func printElevatorPitch(forAnimal animal: Animal) {
+    if let animal = animal as? WildAnimal {
+        print(animal.isPoisonus ? "It's only a little poisonus!" : "It's not poisonus at all!")
+        return
+    }
+    
+    if let pet = animal as? Pet {
+        switch pet {
+        case let cat as Cat:
+            print("It's a kitty name \(cat.name)! I've always wanted a kitty.")
+            cat.speak()
+            return
+        default:
+            print("This is a definitely a normal sort of pet and I've named them \(pet.name)")
+            pet.speak()
+            pet.play()
+            return
+        }
+    }
+    print("It's Animal! You know, the Muppet?")
+}
+
+animals.forEach(printElevatorPitch(forAnimal:))
+
 
 
 

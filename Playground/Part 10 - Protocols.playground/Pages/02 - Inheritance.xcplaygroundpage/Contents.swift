@@ -27,6 +27,14 @@ class SchoolBandMember: Student {
 }
 
 class StudentAthlete: Student {
+    override var grades: [Grade] {
+        didSet {
+            if !isEligible {
+                print("It's time to study!")
+            }
+        }
+    }
+    
     var isEligible: Bool {
         return grades.filter { $0.letter == "F" } .count < 3
     }
@@ -34,8 +42,29 @@ class StudentAthlete: Student {
 
 let jon = Person(firstName: "Jon", lastName: "Snon")
 let jane = Student(firstName: "Jane", lastName: "Snane")
-jon.firstName
-jane.firstName
+let jessy = SchoolBandMember(firstName: "Jessy", lastName: "Catterwaul")
+let marty = StudentAthlete(firstName: "Marty", lastName: "McWolf")
+
+let array = [jane, jessy, marty]
+
+let student = marty as Student
+let athlete = student as! StudentAthlete
+
+let utterFailureGrade = Grade(letter: "F", points: 0, credits: 0)
+athlete.grades.append(utterFailureGrade)
+athlete.grades.append(utterFailureGrade)
+athlete.grades.append(utterFailureGrade)
+
+func getEveningActivity(student: Student) -> String {
+    if let bandMamber = student as? SchoolBandMember {
+        return "Praticing for at least \(bandMamber.minimumPracticeTime)"
+    } else {
+        return "Hitting the books!"
+    }
+}
+
+getEveningActivity(student: jessy)
+getEveningActivity(student: jane)
 
 let historyGrade = Grade(letter: "B", points: 9, credits: 3)
 jane.grades.append(historyGrade)
