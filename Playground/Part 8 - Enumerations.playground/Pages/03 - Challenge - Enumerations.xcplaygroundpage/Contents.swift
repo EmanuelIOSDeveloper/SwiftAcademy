@@ -37,12 +37,6 @@ enum Suit: String {
   case diamond = "suit.diamond.fill"
 }
 
-// --------------------------------------
-//let heart = Image(systemName: "suit.heart.fill")
-//let club = Image(systemName: "suit.club.fil")
-//let spade = Image(systemName: "suit.spade.fill")
-//let diamond = Image(systemName: "suite.diamond.fill")
-// --------------------------------------
 
 let heart = Image(systemName: Suit.heart.rawValue)
 let club = Image(systemName: Suit.club.rawValue)
@@ -58,7 +52,6 @@ let diamond = Image(systemName: Suit.diamond.rawValue)
  - Create an array called `coinPurse` that contains coins. Add an assortment of pennies, nickels, dimes, and quarters (or whatever coins you used!) to it.
 */
 
-// TODO: Write solution here
 enum Coin: Double {
   case penny = 0.01
   case nickel = 0.05
