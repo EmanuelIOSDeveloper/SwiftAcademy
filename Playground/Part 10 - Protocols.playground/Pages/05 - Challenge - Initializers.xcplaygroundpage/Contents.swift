@@ -9,7 +9,15 @@
  3.  a function `speak()` that does nothing.
  */
 
-// TODO: Write solution here
+class Animal {
+    var name: String
+    
+    func speak() { }
+    
+    required init(name: String) {
+        self.name = name
+    }
+}
 
 /*:
  Create a class named `Dog` that…
@@ -19,8 +27,32 @@
  4. overrides the function `speak()` to greet you and says its name
  */
 
-// TODO: Write solution here
+class Dog: Animal {
+    var tricksLearnedCount: Int
+    
+    convenience required init(name: String) {
+        self.init(name: name, tricksLearnedCount: 0)
+        
+    }
+    
+    init(name: String, tricksLearnedCount: Int) {
+        self.tricksLearnedCount = tricksLearnedCount
+        super.init(name: name)
+        speak()
+    }
+    
+    convenience init(tricksLearnedCount: Int = .max) {
+        self.init(name: "Tramp", tricksLearnedCount: tricksLearnedCount)
+    }
+    
+    override func speak() {
+        print("Bow wow! My name is \(name)!")
+    }
+}
 
+Dog(name: "Shadow")
+Dog(name: "Change", tricksLearnedCount: 3)
+Dog().tricksLearnedCount
 /*:
  Add a second (non-required) initializer to `Dog` that takes both the `name` and `numTricksLearned` as parameters. Then call this initializer from the required initializer.
  */

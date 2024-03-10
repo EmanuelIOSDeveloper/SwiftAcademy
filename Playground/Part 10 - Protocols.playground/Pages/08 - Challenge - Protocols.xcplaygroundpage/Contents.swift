@@ -14,10 +14,46 @@
  - `pi` is a property of `Double`!
  - You can copy the extension on `Numeric` into this page and use the `squared` property!
 */
+extension Numeric {
+    var squared: Self { self * self }
+}
+
+protocol Shape {
+    var area: Double { get }
+}
+
+struct Square: Shape {
+    let side: Double
+    
+    var area: Double {
+        side.squared
+    }
+}
 
 
-// TODO: Write solution here
+struct Triangle: Shape {
+    let base: Double
+    let height: Double
+    
+    var area: Double {
+        0.5 * base * height
+    }
+}
 
+struct Circle: Shape {
+    let radius: Double
+    
+    var area: Double {
+        .pi * radius.squared
+    }
+}
+
+let square = Square(side: 4)
+let triangle = Triangle(base: 3, height: 5)
+let circle = Circle(radius: 2)
+let shapes : [Shape] = [square, triangle, circle]
+
+print(shapes.map {$0.area })
 
 
 /*:
@@ -35,8 +71,17 @@ func isInteger(number: Double) -> Bool {
 
 // TODO: Write solution here
 
+extension FloatingPoint {
+    var isInteger: Bool {
+        rounded() == self
+    }
+}
 
+let double: Double = 5.0
+let float: Float = 3.7
 
+double.isInteger
+float.isInteger
 
 
 

@@ -9,6 +9,24 @@ protocol Animal {
   func speak()
 }
 
+protocol Aloof {
+    var name: String { get }
+}
+
+extension Aloof {
+    var greeting: String {
+        "My name is \(name). Please leave me alone. I must look at this wall."
+    }
+}
+
+protocol AloofAnimal: Aloof, Animal {  }
+
+extension AloofAnimal {
+    func speak() {
+      print("\(greeting). Please leave me alone. I must look at this wall.")
+    }
+}
+
 class Dog: Animal {
   let name: String
   var tricksLearnedCount: Int
@@ -27,16 +45,18 @@ class Dog: Animal {
   }
 }
 
-class Cat: Animal {
+class Cat {
   let name: String
   
   required init(name: String) {
     self.name = name
   }
-  
-  func speak() {
-    print("My name is \(name). Please leave me alone. I must look at this wall.")
-  }
+}
+
+extension Cat: AloofAnimal {
+    func speak() {
+        print(greeting + "Meow")
+    }
 }
 
 let animals: [Animal] = [Dog(name: "Fang"), Cat(name: "Mr. Midnight")]
@@ -61,8 +81,26 @@ func isOdd(_ value: Int) -> Bool {
 }
 // --------------------------------
 
+extension Int {
+    var isEven: Bool {
+        self % 2 == 0
+    }
+    
+    var isOdd: Bool {
+      (self + 1) % 2 == 0
+    }
+}
+
+5.isOdd
+5.isEven
 
 
+extension Numeric {
+    var squared: Self { self * self}
+}
+
+5.squared
+5.5.squared
 //: More Extensions!
 
 // --------------------------------
@@ -71,10 +109,20 @@ enum Weekday: CaseIterable {
 }
 
 struct Time {
-  var day: Weekday = .monday
-  var hour: UInt = 0
+    var day: Weekday = .monday
+    var hour: UInt = 0
+}
+extension Time {
+    init(day: Weekday) {
+        self.day = day
+    }
 }
 // --------------------------------
+
+Time(day: .friday, hour: 17)
+Time()
+Time(day: .wednesday)
+
 
 
 
